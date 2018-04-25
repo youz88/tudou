@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * 基于 redis 的 mybatis 缓存.
  *
- * 只需要在 mapper.xml 中添加 &lt;cache type="com.wolianw.erp.global.util.MybatisRedisCache" /&gt; 即可
+ * 只需要在 mapper.xml 中添加 &lt;cache type="com.tudou.global.util.MybatisRedisCache" /&gt; 即可
  */
 public class MybatisRedisCache implements Cache {
 

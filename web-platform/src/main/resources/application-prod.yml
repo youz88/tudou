@@ -1,0 +1,28 @@
+
+online: true       # 线上才验证登录
+permission: true   # 验证权限吗?
+notShowError: true # 不显示错误信息吗?
+
+logging.config: classpath:log-prod.xml
+
+server.port: 7015
+
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  http.multipart:
+    maxFileSize: 12Mb
+    maxRequestSize: 20Mb
+
+spring.dubbo:
+  scan: com.tudou
+  application:
+    name: web-platform
+    registries:
+      -
+        address: zookeeper://127.0.0.1:2181
+        timeout: 10000
+        register: false

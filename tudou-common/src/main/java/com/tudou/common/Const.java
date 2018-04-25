@@ -10,7 +10,7 @@ public final class Const {
 
     // ========== load ==========
     /** 当前项目的基本包名 */
-    public static final String BASE_PACKAGE = "com.wolianw.erp";
+    public static final String BASE_PACKAGE = "com.tudou";
     /** 指定模块存放枚举的包名 */
     public static String enumPath(String moduleName) {
         return BASE_PACKAGE + "." + moduleName.replace('-', '.') + ".enums";

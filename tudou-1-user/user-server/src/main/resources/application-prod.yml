@@ -1,0 +1,42 @@
+
+# 线上环境
+
+online: true
+
+logging.config: classpath:log-prod.xml
+
+database:
+  url:  jdbc:mysql://127.0.0.1:3306/tudou?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+  userName: root
+  password: root
+  initialSize: 10
+  minIdle: 10
+  maxActive: 100
+  maxWait: 60000
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  validationQuery: SELECT 'x'
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  filters: wall
+
+spring.redis:
+  host: 127.0.0.1
+  port: 6379
+
+spring.dubbo:
+  scan: com.tudou
+  protocol:
+    name: dubbo
+    port: 7003
+  application:
+    name: user-server
+    registries:
+      -
+        address: zookeeper://127.0.0.1:2181
+        timeout: 10000
+      -
+        address: zookeeper://127.0.0.2:2181
+        timeout: 10000
+

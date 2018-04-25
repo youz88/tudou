@@ -29,7 +29,10 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>tudou-common</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>tudou-global</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>user-model</artifactId>

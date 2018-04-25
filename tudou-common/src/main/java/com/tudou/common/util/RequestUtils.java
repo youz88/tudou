@@ -189,7 +189,7 @@ public final class RequestUtils {
         return sbd.toString();
     }
 
-    /** 获取主域名. 如: http://1788.wolianw.com */
+    /** 获取主域名. 如: http://www.baidu.com */
     public static String getDomain() {
         HttpServletRequest request = getRequest();
         String scheme = request.getScheme();

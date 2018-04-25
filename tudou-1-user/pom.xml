@@ -6,7 +6,7 @@
 	<groupId>com.tudou</groupId>
 	<artifactId>tudou-1-user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>tudou-1-user</name>
 	<description>用户模块</description>

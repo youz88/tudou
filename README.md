@@ -32,7 +32,6 @@ Quartz | 作业调度框架  | [http://www.quartz-scheduler.org/](http://www.qua
 ActiveMQ | 消息队列  | [http://activemq.apache.org/](http://activemq.apache.org/)
 BackLog | 日志组件  | [http://logging.apache.org/log4j/1.2/](http://logging.apache.org/log4j/1.2/)
 Swagger2 | 接口测试框架  | [http://swagger.io/](http://swagger.io/)
-AliOSS & Qiniu & QcloudCOS | 云存储  | [https://www.aliyun.com/product/oss/](https://www.aliyun.com/product/oss/) [http://www.qiniu.com/](http://www.qiniu.com/) [https://www.qcloud.com/product/cos](https://www.qcloud.com/product/cos)
 kryo | 数据序列化  | [https://blog.csdn.net/fanjunjaden/article/details/72823866](https://blog.csdn.net/fanjunjaden/article/details/72823866)
 Jenkins | 持续集成工具  | [https://jenkins.io/index.html](https://jenkins.io/index.html)
 Maven | 项目构建管理  | [http://maven.apache.org/](http://maven.apache.org/)

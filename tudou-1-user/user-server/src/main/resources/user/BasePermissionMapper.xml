@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tudou.user.repository.BasePermissionMapper">
+    <resultMap id="BaseResultMap" type="com.tudou.user.model.BasePermission">
+        <id column="permission_id" jdbcType="BIGINT" property="permissionId" />
+        <result column="pid" jdbcType="BIGINT" property="pid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="permission_value" jdbcType="VARCHAR" property="permissionValue" />
+        <result column="uri" jdbcType="VARCHAR" property="uri" />
+        <result column="icon" jdbcType="VARCHAR" property="icon" />
+        <result column="enable" jdbcType="BIT" property="enable" />
+        <result column="orders" jdbcType="INTEGER" property="orders" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    </resultMap>
+    <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.BasePermission">
+        <id column="base_permission_permission_id" jdbcType="BIGINT" property="permissionId" />
+        <result column="base_permission_pid" jdbcType="BIGINT" property="pid" />
+        <result column="base_permission_name" jdbcType="VARCHAR" property="name" />
+        <result column="base_permission_type" jdbcType="INTEGER" property="type" />
+        <result column="base_permission_permission_value" jdbcType="VARCHAR" property="permissionValue" />
+        <result column="base_permission_uri" jdbcType="VARCHAR" property="uri" />
+        <result column="base_permission_icon" jdbcType="VARCHAR" property="icon" />
+        <result column="base_permission_enable" jdbcType="BIT" property="enable" />
+        <result column="base_permission_orders" jdbcType="INTEGER" property="orders" />
+        <result column="base_permission_create_time" jdbcType="BIGINT" property="createTime" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        `permission_id`, `pid`, `name`, `type`, `permission_value`, `uri`, 
+        `icon`, `enable`, `orders`, `create_time`
+    </sql>
+    <sql id="Base_Column_List_Alias">
+        `base_permission`.`permission_id` as `base_permission_permission_id`, 
+        `base_permission`.`pid` as `base_permission_pid`, `base_permission`.`name` as `base_permission_name`, 
+        `base_permission`.`type` as `base_permission_type`, `base_permission`.`permission_value` as `base_permission_permission_value`, 
+        `base_permission`.`uri` as `base_permission_uri`, `base_permission`.`icon` as `base_permission_icon`, 
+        `base_permission`.`enable` as `base_permission_enable`, `base_permission`.`orders` as `base_permission_orders`, 
+        `base_permission`.`create_time` as `base_permission_create_time`
+    </sql>
+    <select id="selectByExample" parameterType="com.tudou.user.model.BasePermissionExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from `base_permission`
+        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from `base_permission`
+        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.tudou.user.model.BasePermissionExample">
+        delete from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insertSelective" keyColumn="permission_id" keyProperty="permissionId" parameterType="com.tudou.user.model.BasePermission" useGeneratedKeys="true">
+        insert into `base_permission`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="permissionId != null">
+                `permission_id`,
+            </if>
+            <if test="pid != null">
+                `pid`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="permissionValue != null">
+                `permission_value`,
+            </if>
+            <if test="uri != null">
+                `uri`,
+            </if>
+            <if test="icon != null">
+                `icon`,
+            </if>
+            <if test="enable != null">
+                `enable`,
+            </if>
+            <if test="orders != null">
+                `orders`,
+            </if>
+            <if test="createTime != null">
+                `create_time`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="permissionId != null">
+                #{permissionId,jdbcType=BIGINT},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="permissionValue != null">
+                #{permissionValue,jdbcType=VARCHAR},
+            </if>
+            <if test="uri != null">
+                #{uri,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                #{enable,jdbcType=BIT},
+            </if>
+            <if test="orders != null">
+                #{orders,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.tudou.user.model.BasePermissionExample" resultType="java.lang.Integer">
+        select count(*) from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update `base_permission`
+        <set>
+            <if test="record.permissionId != null">
+                `permission_id` = #{record.permissionId,jdbcType=BIGINT},
+            </if>
+            <if test="record.pid != null">
+                `pid` = #{record.pid,jdbcType=BIGINT},
+            </if>
+            <if test="record.name != null">
+                `name` = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                `type` = #{record.type,jdbcType=INTEGER},
+            </if>
+            <if test="record.permissionValue != null">
+                `permission_value` = #{record.permissionValue,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uri != null">
+                `uri` = #{record.uri,jdbcType=VARCHAR},
+            </if>
+            <if test="record.icon != null">
+                `icon` = #{record.icon,jdbcType=VARCHAR},
+            </if>
+            <if test="record.enable != null">
+                `enable` = #{record.enable,jdbcType=BIT},
+            </if>
+            <if test="record.orders != null">
+                `orders` = #{record.orders,jdbcType=INTEGER},
+            </if>
+            <if test="record.createTime != null">
+                `create_time` = #{record.createTime,jdbcType=BIGINT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tudou.user.model.BasePermission">
+        update `base_permission`
+        <set>
+            <if test="pid != null">
+                `pid` = #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="permissionValue != null">
+                `permission_value` = #{permissionValue,jdbcType=VARCHAR},
+            </if>
+            <if test="uri != null">
+                `uri` = #{uri,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                `icon` = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                `enable` = #{enable,jdbcType=BIT},
+            </if>
+            <if test="orders != null">
+                `orders` = #{orders,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                `create_time` = #{createTime,jdbcType=BIGINT},
+            </if>
+        </set>
+        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+    </update>
+</mapper>

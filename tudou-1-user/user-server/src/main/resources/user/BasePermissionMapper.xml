@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tudou.user.repository.BasePermissionMapper">
     <resultMap id="BaseResultMap" type="com.tudou.user.model.BasePermission">
-        <id column="permission_id" jdbcType="BIGINT" property="permissionId" />
+        <id column="id" jdbcType="BIGINT" property="id" />
         <result column="pid" jdbcType="BIGINT" property="pid" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="type" jdbcType="INTEGER" property="type" />
@@ -14,7 +14,7 @@
         <result column="create_time" jdbcType="BIGINT" property="createTime" />
     </resultMap>
     <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.BasePermission">
-        <id column="base_permission_permission_id" jdbcType="BIGINT" property="permissionId" />
+        <id column="base_permission_id" jdbcType="BIGINT" property="id" />
         <result column="base_permission_pid" jdbcType="BIGINT" property="pid" />
         <result column="base_permission_name" jdbcType="VARCHAR" property="name" />
         <result column="base_permission_type" jdbcType="INTEGER" property="type" />
@@ -84,13 +84,13 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        `permission_id`, `pid`, `name`, `type`, `permission_value`, `uri`, 
-        `icon`, `enable`, `orders`, `create_time`
+        `id`, `pid`, `name`, `type`, `permission_value`, `uri`, `icon`, 
+        `enable`, `orders`, `create_time`
     </sql>
     <sql id="Base_Column_List_Alias">
-        `base_permission`.`permission_id` as `base_permission_permission_id`, 
-        `base_permission`.`pid` as `base_permission_pid`, `base_permission`.`name` as `base_permission_name`, 
-        `base_permission`.`type` as `base_permission_type`, `base_permission`.`permission_value` as `base_permission_permission_value`, 
+        `base_permission`.`id` as `base_permission_id`, `base_permission`.`pid` as `base_permission_pid`, 
+        `base_permission`.`name` as `base_permission_name`, `base_permission`.`type` as `base_permission_type`, 
+        `base_permission`.`permission_value` as `base_permission_permission_value`, 
         `base_permission`.`uri` as `base_permission_uri`, `base_permission`.`icon` as `base_permission_icon`, 
         `base_permission`.`enable` as `base_permission_enable`, `base_permission`.`orders` as `base_permission_orders`, 
         `base_permission`.`create_time` as `base_permission_create_time`
@@ -113,11 +113,11 @@
         select 
         <include refid="Base_Column_List" />
         from `base_permission`
-        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from `base_permission`
-        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </delete>
     <delete id="deleteByExample" parameterType="com.tudou.user.model.BasePermissionExample">
         delete from `base_permission`
@@ -125,11 +125,11 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insertSelective" keyColumn="permission_id" keyProperty="permissionId" parameterType="com.tudou.user.model.BasePermission" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.tudou.user.model.BasePermission" useGeneratedKeys="true">
         insert into `base_permission`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="permissionId != null">
-                `permission_id`,
+            <if test="id != null">
+                `id`,
             </if>
             <if test="pid != null">
                 `pid`,
@@ -160,8 +160,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="permissionId != null">
-                #{permissionId,jdbcType=BIGINT},
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
             </if>
             <if test="pid != null">
                 #{pid,jdbcType=BIGINT},
@@ -201,8 +201,8 @@
     <update id="updateByExampleSelective" parameterType="map">
         update `base_permission`
         <set>
-            <if test="record.permissionId != null">
-                `permission_id` = #{record.permissionId,jdbcType=BIGINT},
+            <if test="record.id != null">
+                `id` = #{record.id,jdbcType=BIGINT},
             </if>
             <if test="record.pid != null">
                 `pid` = #{record.pid,jdbcType=BIGINT},
@@ -267,6 +267,6 @@
                 `create_time` = #{createTime,jdbcType=BIGINT},
             </if>
         </set>
-        where `permission_id` = #{permissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

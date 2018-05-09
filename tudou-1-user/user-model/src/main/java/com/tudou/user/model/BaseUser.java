@@ -14,17 +14,14 @@ import lombok.Setter;
 public class BaseUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** 编号 --> user_id */
-    private Long userId;
+    /** 编号 --> id */
+    private Long id;
 
     /** 帐号 --> user_name */
     private String userName;
 
-    /** 密码MD5(密码+盐) --> password */
+    /** 密码MD5 --> password */
     private String password;
-
-    /** 盐 --> salt */
-    private String salt;
 
     /** 昵称 --> nickname */
     private String nickname;

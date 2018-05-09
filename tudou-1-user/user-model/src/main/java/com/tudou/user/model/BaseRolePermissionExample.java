@@ -104,63 +104,63 @@ public class BaseRolePermissionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRolePermissionIdIsNull() {
-            addCriterion("`role_permission_id` is null");
+        public Criteria andIdIsNull() {
+            addCriterion("`id` is null");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdIsNotNull() {
-            addCriterion("`role_permission_id` is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("`id` is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdEqualTo(Long value) {
-            addCriterion("`role_permission_id` =", value, "rolePermissionId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("`id` =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdNotEqualTo(Long value) {
-            addCriterion("`role_permission_id` <>", value, "rolePermissionId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("`id` <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdGreaterThan(Long value) {
-            addCriterion("`role_permission_id` >", value, "rolePermissionId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("`id` >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("`role_permission_id` >=", value, "rolePermissionId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("`id` >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdLessThan(Long value) {
-            addCriterion("`role_permission_id` <", value, "rolePermissionId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("`id` <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdLessThanOrEqualTo(Long value) {
-            addCriterion("`role_permission_id` <=", value, "rolePermissionId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("`id` <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdIn(List<Long> values) {
-            addCriterion("`role_permission_id` in", values, "rolePermissionId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("`id` in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdNotIn(List<Long> values) {
-            addCriterion("`role_permission_id` not in", values, "rolePermissionId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("`id` not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdBetween(Long value1, Long value2) {
-            addCriterion("`role_permission_id` between", value1, value2, "rolePermissionId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("`id` between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolePermissionIdNotBetween(Long value1, Long value2) {
-            addCriterion("`role_permission_id` not between", value1, value2, "rolePermissionId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("`id` not between", value1, value2, "id");
             return (Criteria) this;
         }
 

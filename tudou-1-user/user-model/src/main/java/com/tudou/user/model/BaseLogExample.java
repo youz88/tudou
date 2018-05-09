@@ -104,63 +104,63 @@ public class BaseLogExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andLogIdIsNull() {
-            addCriterion("`log_id` is null");
+        public Criteria andIdIsNull() {
+            addCriterion("`id` is null");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdIsNotNull() {
-            addCriterion("`log_id` is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("`id` is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdEqualTo(Long value) {
-            addCriterion("`log_id` =", value, "logId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("`id` =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdNotEqualTo(Long value) {
-            addCriterion("`log_id` <>", value, "logId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("`id` <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdGreaterThan(Long value) {
-            addCriterion("`log_id` >", value, "logId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("`id` >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("`log_id` >=", value, "logId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("`id` >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdLessThan(Long value) {
-            addCriterion("`log_id` <", value, "logId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("`id` <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdLessThanOrEqualTo(Long value) {
-            addCriterion("`log_id` <=", value, "logId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("`id` <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdIn(List<Long> values) {
-            addCriterion("`log_id` in", values, "logId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("`id` in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdNotIn(List<Long> values) {
-            addCriterion("`log_id` not in", values, "logId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("`id` not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdBetween(Long value1, Long value2) {
-            addCriterion("`log_id` between", value1, value2, "logId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("`id` between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andLogIdNotBetween(Long value1, Long value2) {
-            addCriterion("`log_id` not between", value1, value2, "logId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("`id` not between", value1, value2, "id");
             return (Criteria) this;
         }
 

@@ -3,6 +3,9 @@ package com.tudou.user.repository;
 import com.github.liuanxin.page.model.PageBounds;
 
 import java.util.List;
+
+import com.tudou.user.model.BasePermission;
+import com.tudou.user.model.BasePermissionExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface BasePermissionMapper {
@@ -23,4 +26,7 @@ public interface BasePermissionMapper {
     int updateByExampleSelective(@Param("record") BasePermission record, @Param("example") BasePermissionExample example);
 
     int updateByPrimaryKeySelective(BasePermission record);
+
+    List<BasePermission> selectPermissionByUser(@Param("userId") Long userId);
+
 }

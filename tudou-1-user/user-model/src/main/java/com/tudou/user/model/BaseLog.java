@@ -12,8 +12,8 @@ import lombok.Setter;
 public class BaseLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** 编号 --> log_id */
-    private Long logId;
+    /** 编号 --> id */
+    private Long id;
 
     /** 操作描述 --> description */
     private String description;

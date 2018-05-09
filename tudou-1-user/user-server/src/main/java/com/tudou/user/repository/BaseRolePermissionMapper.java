@@ -3,6 +3,9 @@ package com.tudou.user.repository;
 import com.github.liuanxin.page.model.PageBounds;
 
 import java.util.List;
+
+import com.tudou.user.model.BaseRolePermission;
+import com.tudou.user.model.BaseRolePermissionExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface BaseRolePermissionMapper {

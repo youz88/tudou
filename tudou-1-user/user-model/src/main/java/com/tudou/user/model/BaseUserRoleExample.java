@@ -104,63 +104,63 @@ public class BaseUserRoleExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andUserRoleIdIsNull() {
-            addCriterion("`user_role_id` is null");
+        public Criteria andIdIsNull() {
+            addCriterion("`id` is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdIsNotNull() {
-            addCriterion("`user_role_id` is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("`id` is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdEqualTo(Long value) {
-            addCriterion("`user_role_id` =", value, "userRoleId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("`id` =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdNotEqualTo(Long value) {
-            addCriterion("`user_role_id` <>", value, "userRoleId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("`id` <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdGreaterThan(Long value) {
-            addCriterion("`user_role_id` >", value, "userRoleId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("`id` >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("`user_role_id` >=", value, "userRoleId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("`id` >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdLessThan(Long value) {
-            addCriterion("`user_role_id` <", value, "userRoleId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("`id` <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdLessThanOrEqualTo(Long value) {
-            addCriterion("`user_role_id` <=", value, "userRoleId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("`id` <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdIn(List<Long> values) {
-            addCriterion("`user_role_id` in", values, "userRoleId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("`id` in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdNotIn(List<Long> values) {
-            addCriterion("`user_role_id` not in", values, "userRoleId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("`id` not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdBetween(Long value1, Long value2) {
-            addCriterion("`user_role_id` between", value1, value2, "userRoleId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("`id` between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRoleIdNotBetween(Long value1, Long value2) {
-            addCriterion("`user_role_id` not between", value1, value2, "userRoleId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("`id` not between", value1, value2, "id");
             return (Criteria) this;
         }
 

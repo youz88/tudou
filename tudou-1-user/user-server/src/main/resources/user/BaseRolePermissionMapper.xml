@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tudou.user.repository.BaseRolePermissionMapper">
     <resultMap id="BaseResultMap" type="com.tudou.user.model.BaseRolePermission">
-        <id column="role_permission_id" jdbcType="BIGINT" property="rolePermissionId" />
+        <id column="id" jdbcType="BIGINT" property="id" />
         <result column="role_id" jdbcType="BIGINT" property="roleId" />
         <result column="permission_id" jdbcType="BIGINT" property="permissionId" />
     </resultMap>
     <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.BaseRolePermission">
-        <id column="base_role_permission_role_permission_id" jdbcType="BIGINT" property="rolePermissionId" />
+        <id column="base_role_permission_id" jdbcType="BIGINT" property="id" />
         <result column="base_role_permission_role_id" jdbcType="BIGINT" property="roleId" />
         <result column="base_role_permission_permission_id" jdbcType="BIGINT" property="permissionId" />
     </resultMap>
@@ -70,11 +70,10 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        `role_permission_id`, `role_id`, `permission_id`
+        `id`, `role_id`, `permission_id`
     </sql>
     <sql id="Base_Column_List_Alias">
-        `base_role_permission`.`role_permission_id` as `base_role_permission_role_permission_id`, 
-        `base_role_permission`.`role_id` as `base_role_permission_role_id`, 
+        `base_role_permission`.`id` as `base_role_permission_id`, `base_role_permission`.`role_id` as `base_role_permission_role_id`, 
         `base_role_permission`.`permission_id` as `base_role_permission_permission_id`
     </sql>
     <select id="selectByExample" parameterType="com.tudou.user.model.BaseRolePermissionExample" resultMap="BaseResultMap">
@@ -95,11 +94,11 @@
         select 
         <include refid="Base_Column_List" />
         from `base_role_permission`
-        where `role_permission_id` = #{rolePermissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from `base_role_permission`
-        where `role_permission_id` = #{rolePermissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </delete>
     <delete id="deleteByExample" parameterType="com.tudou.user.model.BaseRolePermissionExample">
         delete from `base_role_permission`
@@ -107,11 +106,11 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insertSelective" keyColumn="role_permission_id" keyProperty="rolePermissionId" parameterType="com.tudou.user.model.BaseRolePermission" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.tudou.user.model.BaseRolePermission" useGeneratedKeys="true">
         insert into `base_role_permission`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="rolePermissionId != null">
-                `role_permission_id`,
+            <if test="id != null">
+                `id`,
             </if>
             <if test="roleId != null">
                 `role_id`,
@@ -121,8 +120,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="rolePermissionId != null">
-                #{rolePermissionId,jdbcType=BIGINT},
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
             </if>
             <if test="roleId != null">
                 #{roleId,jdbcType=BIGINT},
@@ -141,8 +140,8 @@
     <update id="updateByExampleSelective" parameterType="map">
         update `base_role_permission`
         <set>
-            <if test="record.rolePermissionId != null">
-                `role_permission_id` = #{record.rolePermissionId,jdbcType=BIGINT},
+            <if test="record.id != null">
+                `id` = #{record.id,jdbcType=BIGINT},
             </if>
             <if test="record.roleId != null">
                 `role_id` = #{record.roleId,jdbcType=BIGINT},
@@ -165,6 +164,6 @@
                 `permission_id` = #{permissionId,jdbcType=BIGINT},
             </if>
         </set>
-        where `role_permission_id` = #{rolePermissionId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

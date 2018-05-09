@@ -104,63 +104,63 @@ public class BaseUserExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("`user_id` is null");
+        public Criteria andIdIsNull() {
+            addCriterion("`id` is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("`user_id` is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("`id` is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("`user_id` =", value, "userId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("`id` =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("`user_id` <>", value, "userId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("`id` <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("`user_id` >", value, "userId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("`id` >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("`user_id` >=", value, "userId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("`id` >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Long value) {
-            addCriterion("`user_id` <", value, "userId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("`id` <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("`user_id` <=", value, "userId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("`id` <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("`user_id` in", values, "userId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("`id` in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("`user_id` not in", values, "userId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("`id` not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("`user_id` between", value1, value2, "userId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("`id` between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("`user_id` not between", value1, value2, "userId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("`id` not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -301,76 +301,6 @@ public class BaseUserExample {
 
         public Criteria andPasswordNotBetween(String value1, String value2) {
             addCriterion("`password` not between", value1, value2, "password");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltIsNull() {
-            addCriterion("`salt` is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltIsNotNull() {
-            addCriterion("`salt` is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltEqualTo(String value) {
-            addCriterion("`salt` =", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltNotEqualTo(String value) {
-            addCriterion("`salt` <>", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltGreaterThan(String value) {
-            addCriterion("`salt` >", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltGreaterThanOrEqualTo(String value) {
-            addCriterion("`salt` >=", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltLessThan(String value) {
-            addCriterion("`salt` <", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltLessThanOrEqualTo(String value) {
-            addCriterion("`salt` <=", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltLike(String value) {
-            addCriterion("`salt` like", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltNotLike(String value) {
-            addCriterion("`salt` not like", value, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltIn(List<String> values) {
-            addCriterion("`salt` in", values, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltNotIn(List<String> values) {
-            addCriterion("`salt` not in", values, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltBetween(String value1, String value2) {
-            addCriterion("`salt` between", value1, value2, "salt");
-            return (Criteria) this;
-        }
-
-        public Criteria andSaltNotBetween(String value1, String value2) {
-            addCriterion("`salt` not between", value1, value2, "salt");
             return (Criteria) this;
         }
 

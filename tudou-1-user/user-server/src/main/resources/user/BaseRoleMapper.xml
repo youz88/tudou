@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tudou.user.repository.BaseRoleMapper">
     <resultMap id="BaseResultMap" type="com.tudou.user.model.BaseRole">
-        <id column="role_id" jdbcType="BIGINT" property="roleId" />
+        <id column="id" jdbcType="BIGINT" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="description" jdbcType="VARCHAR" property="description" />
         <result column="orders" jdbcType="INTEGER" property="orders" />
         <result column="create_time" jdbcType="BIGINT" property="createTime" />
     </resultMap>
     <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.BaseRole">
-        <id column="base_role_role_id" jdbcType="BIGINT" property="roleId" />
+        <id column="base_role_id" jdbcType="BIGINT" property="id" />
         <result column="base_role_name" jdbcType="VARCHAR" property="name" />
         <result column="base_role_description" jdbcType="VARCHAR" property="description" />
         <result column="base_role_orders" jdbcType="INTEGER" property="orders" />
@@ -74,10 +74,10 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        `role_id`, `name`, `description`, `orders`, `create_time`
+        `id`, `name`, `description`, `orders`, `create_time`
     </sql>
     <sql id="Base_Column_List_Alias">
-        `base_role`.`role_id` as `base_role_role_id`, `base_role`.`name` as `base_role_name`, 
+        `base_role`.`id` as `base_role_id`, `base_role`.`name` as `base_role_name`, 
         `base_role`.`description` as `base_role_description`, `base_role`.`orders` as `base_role_orders`, 
         `base_role`.`create_time` as `base_role_create_time`
     </sql>
@@ -99,11 +99,11 @@
         select 
         <include refid="Base_Column_List" />
         from `base_role`
-        where `role_id` = #{roleId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from `base_role`
-        where `role_id` = #{roleId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </delete>
     <delete id="deleteByExample" parameterType="com.tudou.user.model.BaseRoleExample">
         delete from `base_role`
@@ -111,11 +111,11 @@
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insertSelective" keyColumn="role_id" keyProperty="roleId" parameterType="com.tudou.user.model.BaseRole" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.tudou.user.model.BaseRole" useGeneratedKeys="true">
         insert into `base_role`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="roleId != null">
-                `role_id`,
+            <if test="id != null">
+                `id`,
             </if>
             <if test="name != null">
                 `name`,
@@ -131,8 +131,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="roleId != null">
-                #{roleId,jdbcType=BIGINT},
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
             </if>
             <if test="name != null">
                 #{name,jdbcType=VARCHAR},
@@ -157,8 +157,8 @@
     <update id="updateByExampleSelective" parameterType="map">
         update `base_role`
         <set>
-            <if test="record.roleId != null">
-                `role_id` = #{record.roleId,jdbcType=BIGINT},
+            <if test="record.id != null">
+                `id` = #{record.id,jdbcType=BIGINT},
             </if>
             <if test="record.name != null">
                 `name` = #{record.name,jdbcType=VARCHAR},
@@ -193,6 +193,6 @@
                 `create_time` = #{createTime,jdbcType=BIGINT},
             </if>
         </set>
-        where `role_id` = #{roleId,jdbcType=BIGINT}
+        where `id` = #{id,jdbcType=BIGINT}
     </update>
 </mapper>

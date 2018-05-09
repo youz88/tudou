@@ -3,6 +3,9 @@ package com.tudou.user.repository;
 import com.github.liuanxin.page.model.PageBounds;
 
 import java.util.List;
+
+import com.tudou.user.model.BaseUser;
+import com.tudou.user.model.BaseUserExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface BaseUserMapper {

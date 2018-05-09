@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tudou.user.repository.BasePermissionMapper" />
+<mapper namespace="com.tudou.user.repository.BasePermissionMapper">
+
+    <select id="selectPermissionByUser" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `base_permission`
+        where enable = 1 and id in (
+            select distinct permission_id from `base_role_permission` where role_id in (
+                select role_id from `base_user_role` where user_id = #{userId}
+            )
+        )
+    </select>
+
+</mapper>

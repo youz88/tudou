@@ -12,8 +12,8 @@ import lombok.Setter;
 public class BaseRolePermission implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** 编号 --> role_permission_id */
-    private Long rolePermissionId;
+    /** 编号 --> id */
+    private Long id;
 
     /** 角色编号 --> role_id */
     private Long roleId;

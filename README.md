@@ -11,6 +11,7 @@ tudou
 ├── tudou-1-user -- 用户模块
 |    ├── user-model -- 用户实体
 |    ├── user-server -- 用户服务
+├── web-platform -- web服务模块，对外开放接口供前端调用
 ```
 ### 技术选型
 

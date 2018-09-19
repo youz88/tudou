@@ -2,25 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.tudou</groupId>
-	<artifactId>tudou-1-user</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-
-	<name>tudou-1-user</name>
-	<description>用户模块</description>
-
 	<parent>
 		<groupId>com.tudou</groupId>
 		<artifactId>tudou</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<artifactId>tudou-1-user</artifactId>
+	<packaging>pom</packaging>
+	<description>用户模块</description>
+
 	<modules>
 		<module>user-model</module>
 		<module>user-server</module>
 	</modules>
-
-
 </project>

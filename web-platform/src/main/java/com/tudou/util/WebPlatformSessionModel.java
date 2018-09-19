@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import com.tudou.common.json.JsonUtil;
 import com.tudou.common.util.A;
 import com.tudou.common.util.U;
-import com.tudou.user.model.BaseUser;
+import com.tudou.user.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -91,7 +91,7 @@ class WebPlatformSessionModel implements Serializable {
 
     /** 将 域名、账号及权限 组装成放进 session 的数据对象 */
     static WebPlatformSessionModel assemblyData(WebPlatformSessionModel sessionModel, String domain,
-                                                BaseUser account, List<com.tudou.user.model.BasePermission> permissions) {
+                                                User account, List<com.tudou.user.model.Permission> permissions) {
         if (U.isBlank(domain) || U.isBlank(account) || A.isEmpty(permissions)) {
             return sessionModel;
         }

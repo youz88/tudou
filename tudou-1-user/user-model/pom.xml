@@ -22,11 +22,6 @@
 			<artifactId>tudou-global</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>dubbo</artifactId>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 </project>

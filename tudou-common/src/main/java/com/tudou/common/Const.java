@@ -90,4 +90,8 @@ public final class Const {
 
     /** cors 支持的所有方法 */
     public static final String[] SUPPORT_METHODS = new String[] { "HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS" };
+
+    /** 默认顶级权限菜单ID */
+    public static final Long DEFAULE_PERMISSION_ID = 0L;
+
 }

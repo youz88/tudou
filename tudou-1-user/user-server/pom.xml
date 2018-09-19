@@ -2,18 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.tudou</groupId>
-	<artifactId>user-server</artifactId>
-
-	<name>user-server</name>
-	<description>用户服务模块</description>
-
 	<parent>
 		<groupId>com.tudou</groupId>
 		<artifactId>tudou-1-user</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
+	<artifactId>user-server</artifactId>
+	<description>用户服务模块</description>
 
 	<dependencies>
 		<dependency>
@@ -64,6 +60,10 @@
 			<artifactId>kryo-serializers</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-framework</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.dubbo.springboot</groupId>
 			<artifactId>spring-boot-starter-dubbo</artifactId>
 		</dependency>
@@ -78,6 +78,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

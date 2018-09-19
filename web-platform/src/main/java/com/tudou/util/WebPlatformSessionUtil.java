@@ -5,8 +5,8 @@ import com.tudou.common.exception.ForbiddenException;
 import com.tudou.common.exception.NotLoginException;
 import com.tudou.common.util.RequestUtils;
 import com.tudou.common.util.U;
-import com.tudou.user.model.BasePermission;
-import com.tudou.user.model.BaseUser;
+import com.tudou.user.model.Permission;
+import com.tudou.user.model.User;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class WebPlatformSessionUtil {
     }
 
     /** 登录之后调用此方法, 主要就是将 用户信息、可访问的 url 等放入 session */
-    public static void whenLogin(BaseUser account, List<BasePermission> permissionList) {
+    public static void whenLogin(User account, List<Permission> permissionList) {
         WebPlatformSessionModel sessionModel = WebPlatformSessionModel.assemblyData(
                 getSessionInfo(), RequestUtils.getDomain(), account,permissionList
         );

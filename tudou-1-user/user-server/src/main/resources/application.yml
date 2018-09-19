@@ -1,4 +1,4 @@
-myhost: 192.168.84.128
+myhost: 192.168.157.128
 
 # 开发环境
 
@@ -25,7 +25,6 @@ database:
 spring.redis:
   host: ${myhost}
   port: 6379
-
 
 # io.dubbo.springboot.DubboProperties
 spring.dubbo:

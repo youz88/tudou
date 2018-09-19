@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youz.draw.user.repository.PermissionMapper">
+    <resultMap id="BaseResultMap" type="com.youz.draw.user.model.Permission">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="pid" jdbcType="BIGINT" property="pid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="type" jdbcType="TINYINT" property="type" />
+        <result column="method" jdbcType="VARCHAR" property="method" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="icon" jdbcType="VARCHAR" property="icon" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="orders" jdbcType="BIGINT" property="orders" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="create_id" jdbcType="BIGINT" property="createId" />
+        <result column="modify_time" jdbcType="BIGINT" property="modifyTime" />
+        <result column="modify_id" jdbcType="BIGINT" property="modifyId" />
+    </resultMap>
+    <resultMap id="BaseResultMap_Alias" type="com.youz.draw.user.model.Permission">
+        <id column="base_permission_id" jdbcType="BIGINT" property="id" />
+        <result column="base_permission_pid" jdbcType="BIGINT" property="pid" />
+        <result column="base_permission_name" jdbcType="VARCHAR" property="name" />
+        <result column="base_permission_type" jdbcType="TINYINT" property="type" />
+        <result column="base_permission_method" jdbcType="VARCHAR" property="method" />
+        <result column="base_permission_url" jdbcType="VARCHAR" property="url" />
+        <result column="base_permission_icon" jdbcType="VARCHAR" property="icon" />
+        <result column="base_permission_status" jdbcType="TINYINT" property="status" />
+        <result column="base_permission_orders" jdbcType="BIGINT" property="orders" />
+        <result column="base_permission_create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="base_permission_create_id" jdbcType="BIGINT" property="createId" />
+        <result column="base_permission_modify_time" jdbcType="BIGINT" property="modifyTime" />
+        <result column="base_permission_modify_id" jdbcType="BIGINT" property="modifyId" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        `id`, `pid`, `name`, `type`, `method`, `url`, `icon`, `status`, 
+        `orders`, `create_time`, `create_id`, `modify_time`, `modify_id`
+    </sql>
+    <sql id="Base_Column_List_Alias">
+        `base_permission`.`id` as `base_permission_id`, `base_permission`.`pid` as `base_permission_pid`, 
+        `base_permission`.`name` as `base_permission_name`, `base_permission`.`type` as `base_permission_type`, 
+        `base_permission`.`method` as `base_permission_method`, `base_permission`.`url` as `base_permission_url`, 
+        `base_permission`.`icon` as `base_permission_icon`, `base_permission`.`status` as `base_permission_status`, 
+        `base_permission`.`orders` as `base_permission_orders`, `base_permission`.`create_time` as `base_permission_create_time`, 
+        `base_permission`.`create_id` as `base_permission_create_id`, 
+        `base_permission`.`modify_time` as `base_permission_modify_time`, 
+        `base_permission`.`modify_id` as `base_permission_modify_id`
+    </sql>
+    <select id="selectByExample" parameterType="com.youz.draw.user.model.PermissionExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from `base_permission`
+        where `id` = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from `base_permission`
+        where `id` = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.youz.draw.user.model.PermissionExample">
+        delete from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.youz.draw.user.model.Permission" useGeneratedKeys="true">
+        insert into `base_permission`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                `id`,
+            </if>
+            <if test="pid != null">
+                `pid`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="method != null">
+                `method`,
+            </if>
+            <if test="url != null">
+                `url`,
+            </if>
+            <if test="icon != null">
+                `icon`,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="orders != null">
+                `orders`,
+            </if>
+            <if test="createTime != null">
+                `create_time`,
+            </if>
+            <if test="createId != null">
+                `create_id`,
+            </if>
+            <if test="modifyTime != null">
+                `modify_time`,
+            </if>
+            <if test="modifyId != null">
+                `modify_id`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=TINYINT},
+            </if>
+            <if test="method != null">
+                #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="orders != null">
+                #{orders,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=BIGINT},
+            </if>
+            <if test="createId != null">
+                #{createId,jdbcType=BIGINT},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=BIGINT},
+            </if>
+            <if test="modifyId != null">
+                #{modifyId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.youz.draw.user.model.PermissionExample" resultType="java.lang.Integer">
+        select count(*) from `base_permission`
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update `base_permission`
+        <set>
+            <if test="record.id != null">
+                `id` = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.pid != null">
+                `pid` = #{record.pid,jdbcType=BIGINT},
+            </if>
+            <if test="record.name != null">
+                `name` = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                `type` = #{record.type,jdbcType=TINYINT},
+            </if>
+            <if test="record.method != null">
+                `method` = #{record.method,jdbcType=VARCHAR},
+            </if>
+            <if test="record.url != null">
+                `url` = #{record.url,jdbcType=VARCHAR},
+            </if>
+            <if test="record.icon != null">
+                `icon` = #{record.icon,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                `status` = #{record.status,jdbcType=TINYINT},
+            </if>
+            <if test="record.orders != null">
+                `orders` = #{record.orders,jdbcType=BIGINT},
+            </if>
+            <if test="record.createTime != null">
+                `create_time` = #{record.createTime,jdbcType=BIGINT},
+            </if>
+            <if test="record.createId != null">
+                `create_id` = #{record.createId,jdbcType=BIGINT},
+            </if>
+            <if test="record.modifyTime != null">
+                `modify_time` = #{record.modifyTime,jdbcType=BIGINT},
+            </if>
+            <if test="record.modifyId != null">
+                `modify_id` = #{record.modifyId,jdbcType=BIGINT},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.youz.draw.user.model.Permission">
+        update `base_permission`
+        <set>
+            <if test="pid != null">
+                `pid` = #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=TINYINT},
+            </if>
+            <if test="method != null">
+                `method` = #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                `url` = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="icon != null">
+                `icon` = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="orders != null">
+                `orders` = #{orders,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                `create_time` = #{createTime,jdbcType=BIGINT},
+            </if>
+            <if test="createId != null">
+                `create_id` = #{createId,jdbcType=BIGINT},
+            </if>
+            <if test="modifyTime != null">
+                `modify_time` = #{modifyTime,jdbcType=BIGINT},
+            </if>
+            <if test="modifyId != null">
+                `modify_id` = #{modifyId,jdbcType=BIGINT},
+            </if>
+        </set>
+        where `id` = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

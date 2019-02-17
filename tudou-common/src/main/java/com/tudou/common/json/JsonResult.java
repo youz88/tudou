@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @SuppressWarnings("unchecked")
 public class JsonResult<T> {
-
+//
     /** 返回码 */
     enum Code {
         /** 失败 */

@@ -33,19 +33,19 @@ public class JsonResult<T> {
      * 返回码. 前台根据此值控制页面扭转.
      *
      *   返回 0 时显示 msg 给用户看.
-     *   返回 1 时将 data 解析后渲染页面(依业务而定, 也可能显示 msg 给用户看, 如 收货地址添加成功 这种).
+     *   返回 1 时将 data 解析后渲染页面(依业务而定, 也可能显示 msg 给用户看, 如 操作成功 这种).
      *   返回 10 时导向登录页面引导用户登录.
      * </pre>
      */
-    @ApiModelProperty("返回码 --> 0(失败, 显示 msg 给用户看), 1(成功, 业务操作), 10(未登录, 将用户导到登录页)")
+    @ApiModelProperty("返回码")
     private int code = Code.FAIL.flag;
 
-    /** 返回说明. 如: 用户名密码错误, 收货地址添加成功 等 */
-    @ApiModelProperty("返回说明. 如: 用户名密码错误, 收货地址添加成功 等")
+    /** 返回说明. 如: 用户名密码错误 等 */
+    @ApiModelProperty("返回说明")
     private String msg = U.EMPTY;
 
     /** 返回的数据. 实体 {"id":1} 还是列表 [{"id":1},{"id":2}] 依业务而定 */
-    @ApiModelProperty("返回的数据. 实体 {\"id\":1} 还是列表 [{\"id\":1},{\"id\":2}] 依业务而定")
+    @ApiModelProperty("返回的数据")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 

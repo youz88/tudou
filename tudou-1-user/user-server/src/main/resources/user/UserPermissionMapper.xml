@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.youz.draw.user.repository.UserPermissionMapper">
-    <resultMap id="BaseResultMap" type="com.youz.draw.user.model.UserPermission">
+<mapper namespace="com.tudou.user.repository.UserPermissionMapper">
+    <resultMap id="BaseResultMap" type="com.tudou.user.model.UserPermission">
         <id column="user_permission_id" jdbcType="BIGINT" property="userPermissionId" />
         <result column="user_id" jdbcType="BIGINT" property="userId" />
         <result column="permission_id" jdbcType="BIGINT" property="permissionId" />
         <result column="type" jdbcType="TINYINT" property="type" />
     </resultMap>
-    <resultMap id="BaseResultMap_Alias" type="com.youz.draw.user.model.UserPermission">
+    <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.UserPermission">
         <id column="base_user_permission_user_permission_id" jdbcType="BIGINT" property="userPermissionId" />
         <result column="base_user_permission_user_id" jdbcType="BIGINT" property="userId" />
         <result column="base_user_permission_permission_id" jdbcType="BIGINT" property="permissionId" />
@@ -80,7 +80,7 @@
         `base_user_permission`.`permission_id` as `base_user_permission_permission_id`, 
         `base_user_permission`.`type` as `base_user_permission_type`
     </sql>
-    <select id="selectByExample" parameterType="com.youz.draw.user.model.UserPermissionExample" resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="com.tudou.user.model.UserPermissionExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
@@ -104,13 +104,13 @@
         delete from `base_user_permission`
         where `user_permission_id` = #{userPermissionId,jdbcType=BIGINT}
     </delete>
-    <delete id="deleteByExample" parameterType="com.youz.draw.user.model.UserPermissionExample">
+    <delete id="deleteByExample" parameterType="com.tudou.user.model.UserPermissionExample">
         delete from `base_user_permission`
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insertSelective" keyColumn="user_permission_id" keyProperty="userPermissionId" parameterType="com.youz.draw.user.model.UserPermission" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="user_permission_id" keyProperty="userPermissionId" parameterType="com.tudou.user.model.UserPermission" useGeneratedKeys="true">
         insert into `base_user_permission`
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userPermissionId != null">
@@ -141,7 +141,7 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="com.youz.draw.user.model.UserPermissionExample" resultType="java.lang.Integer">
+    <select id="countByExample" parameterType="com.tudou.user.model.UserPermissionExample" resultType="java.lang.Integer">
         select count(*) from `base_user_permission`
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
@@ -167,7 +167,7 @@
             <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.youz.draw.user.model.UserPermission">
+    <update id="updateByPrimaryKeySelective" parameterType="com.tudou.user.model.UserPermission">
         update `base_user_permission`
         <set>
             <if test="userId != null">

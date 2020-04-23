@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.youz.draw.user.repository.OperationLogMapper">
-    <resultMap id="BaseResultMap" type="com.youz.draw.user.model.OperationLog">
+<mapper namespace="com.tudou.user.repository.OperationLogMapper">
+    <resultMap id="BaseResultMap" type="com.tudou.user.model.OperationLog">
         <id column="id" jdbcType="BIGINT" property="id" />
         <result column="description" jdbcType="VARCHAR" property="description" />
         <result column="username" jdbcType="VARCHAR" property="username" />
@@ -15,7 +15,7 @@
         <result column="ip" jdbcType="VARCHAR" property="ip" />
         <result column="permissions" jdbcType="VARCHAR" property="permissions" />
     </resultMap>
-    <resultMap id="BaseResultMap_Alias" type="com.youz.draw.user.model.OperationLog">
+    <resultMap id="BaseResultMap_Alias" type="com.tudou.user.model.OperationLog">
         <id column="base_operation_log_id" jdbcType="BIGINT" property="id" />
         <result column="base_operation_log_description" jdbcType="VARCHAR" property="description" />
         <result column="base_operation_log_username" jdbcType="VARCHAR" property="username" />
@@ -29,11 +29,11 @@
         <result column="base_operation_log_ip" jdbcType="VARCHAR" property="ip" />
         <result column="base_operation_log_permissions" jdbcType="VARCHAR" property="permissions" />
     </resultMap>
-    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.youz.draw.user.model.OperationLogWithBLOBs">
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tudou.user.model.OperationLogWithBLOBs">
         <result column="parameter" jdbcType="LONGVARCHAR" property="parameter" />
         <result column="result" jdbcType="LONGVARCHAR" property="result" />
     </resultMap>
-    <resultMap extends="BaseResultMap_Alias" id="ResultMapWithBLOBs_Alias" type="com.youz.draw.user.model.OperationLogWithBLOBs">
+    <resultMap extends="BaseResultMap_Alias" id="ResultMapWithBLOBs_Alias" type="com.tudou.user.model.OperationLogWithBLOBs">
         <result column="base_operation_log_parameter" jdbcType="LONGVARCHAR" property="parameter" />
         <result column="base_operation_log_result" jdbcType="LONGVARCHAR" property="result" />
     </resultMap>
@@ -117,7 +117,7 @@
         `base_operation_log`.`parameter` as `base_operation_log_parameter`, 
         `base_operation_log`.`result` as `base_operation_log_result`
     </sql>
-    <select id="selectByExampleWithBLOBs" parameterType="com.youz.draw.user.model.OperationLogExample" resultMap="ResultMapWithBLOBs">
+    <select id="selectByExampleWithBLOBs" parameterType="com.tudou.user.model.OperationLogExample" resultMap="ResultMapWithBLOBs">
         select
         <if test="distinct">
             distinct
@@ -133,7 +133,7 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByExample" parameterType="com.youz.draw.user.model.OperationLogExample" resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="com.tudou.user.model.OperationLogExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
@@ -159,13 +159,13 @@
         delete from `base_operation_log`
         where `id` = #{id,jdbcType=BIGINT}
     </delete>
-    <delete id="deleteByExample" parameterType="com.youz.draw.user.model.OperationLogExample">
+    <delete id="deleteByExample" parameterType="com.tudou.user.model.OperationLogExample">
         delete from `base_operation_log`
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.youz.draw.user.model.OperationLogWithBLOBs" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.tudou.user.model.OperationLogWithBLOBs" useGeneratedKeys="true">
         insert into `base_operation_log`
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -256,7 +256,7 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="com.youz.draw.user.model.OperationLogExample" resultType="java.lang.Integer">
+    <select id="countByExample" parameterType="com.tudou.user.model.OperationLogExample" resultType="java.lang.Integer">
         select count(*) from `base_operation_log`
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
@@ -312,7 +312,7 @@
             <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.youz.draw.user.model.OperationLogWithBLOBs">
+    <update id="updateByPrimaryKeySelective" parameterType="com.tudou.user.model.OperationLogWithBLOBs">
         update `base_operation_log`
         <set>
             <if test="description != null">

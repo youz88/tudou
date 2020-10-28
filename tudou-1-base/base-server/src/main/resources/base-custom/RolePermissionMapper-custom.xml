@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tudou.base.repository.RolePermissionMapper">
+
+    <insert id="batchInsert">
+        insert into `base_role_permission` (`role_id`, `permission_id`)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.roleId}, #{item.permissionId})
+        </foreach>
+    </insert>
+
+    <insert id="deleteByIds">
+        delete from `base_role_permission` where role_id = #{roleId} and permission_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </insert>
+
+</mapper>

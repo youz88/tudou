@@ -1,9 +1,10 @@
 package com.tudou.web;
 
+import com.github.liuanxin.api.annotation.ApiGroup;
+import com.github.liuanxin.api.annotation.ApiMethod;
+import com.github.liuanxin.api.annotation.ApiParam;
 import com.tudou.common.util.SecurityCodeUtil;
 import com.tudou.util.WebPlatformSessionUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,14 +12,17 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Api(tags = "公共接口")
+@ApiGroup("公共接口")
 @RestController
 public class CommonController {
 
-    @ApiOperation("获取验证码")
+    @ApiMethod("获取验证码")
     @GetMapping("/code")
-    public void code(HttpServletResponse response, String width, String height,
-                     String count, String style) throws IOException {
+    public void code(HttpServletResponse response,
+                     @ApiParam("宽度") String width,
+                     @ApiParam("高度") String height,
+                     @ApiParam("数字个数") String count,
+                     @ApiParam("图片上的文字: 英文, 数字(num), 英文加数字(n)还是中文(cn), 传空值或传的值不是 num n cn 则会默认是英文") String style) throws IOException {
         SecurityCodeUtil.Code code = SecurityCodeUtil.generateCode(count, style, width, height);
 
         // 往 session 里面丢值

@@ -3,14 +3,14 @@
 ## 项目介绍
 
 　　基于SpringBoot+Mybatis+dubbox分布式敏捷开发系统架构，主要目的是能够让初级的研发人员快速的开发出复杂的业务功能，让开发者注重专注业务，其余有平台来封装技术细节，降低技术难度，从而节省人力成本，缩短项目周期，提高软件安全质量
-
+    
 ``` lua
 tudou
 ├── tudou-common -- 公共包, 工具类等
 ├── tudou-global -- 全局服务模块
-├── tudou-1-user -- 用户模块
-|    ├── user-model -- 用户实体
-|    ├── user-server -- 用户服务
+├── tudou-1-base -- 基础服务模块(主要包含用户角色权限的控制)
+|    ├── base-model -- 基础实体
+|    ├── base-server -- 基础服务
 ├── web-platform -- web服务模块，对外开放接口供前端调用
 ```
 ### 技术选型

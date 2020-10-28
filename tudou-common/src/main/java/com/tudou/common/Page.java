@@ -1,7 +1,7 @@
 package com.tudou.common;
 
+import com.github.liuanxin.api.annotation.ApiParam;
 import com.github.liuanxin.page.model.PageBounds;
-import io.swagger.annotations.ApiParam;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

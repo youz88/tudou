@@ -1,8 +1,8 @@
 package com.tudou.dto;
 
+import com.github.liuanxin.api.annotation.ApiParam;
+import com.tudou.base.model.User;
 import com.tudou.common.json.JsonUtil;
-import com.tudou.user.model.User;
-import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
 @Data

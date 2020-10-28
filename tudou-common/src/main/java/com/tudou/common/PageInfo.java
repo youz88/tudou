@@ -1,10 +1,10 @@
 package com.tudou.common;
 
+import com.github.liuanxin.api.annotation.ApiReturn;
 import com.github.liuanxin.page.model.PageList;
 import com.google.common.collect.Lists;
 import com.tudou.common.util.A;
 import com.tudou.common.util.U;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,9 +21,9 @@ import java.util.List;
 public class PageInfo<T> implements Serializable {
     private static final long serialVersionUID = 767143231878083335L;
 
-    @ApiModelProperty("总条数. 根据此值和 page limit 构建分页按钮")
+    @ApiReturn("总条数. 根据此值和 page limit 构建分页按钮")
     private int total;
-    @ApiModelProperty("当前页的数据")
+    @ApiReturn("当前页的数据")
     private List<T> list;
 
     @SuppressWarnings("unchecked")

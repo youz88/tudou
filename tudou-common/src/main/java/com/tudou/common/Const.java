@@ -94,4 +94,7 @@ public final class Const {
     /** 默认顶级权限菜单ID */
     public static final Long DEFAULE_PERMISSION_ID = 0L;
 
+    /** 默认顶级创建人ID */
+    public static final Long DEFAULE_CREATE_ID = 0L;
+
 }

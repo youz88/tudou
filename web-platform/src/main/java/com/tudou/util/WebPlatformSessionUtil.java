@@ -5,8 +5,8 @@ import com.tudou.common.exception.ForbiddenException;
 import com.tudou.common.exception.NotLoginException;
 import com.tudou.common.util.RequestUtils;
 import com.tudou.common.util.U;
-import com.tudou.user.model.Permission;
-import com.tudou.user.model.User;
+import com.tudou.base.model.Permission;
+import com.tudou.base.model.User;
 
 import java.util.List;
 
@@ -106,6 +106,10 @@ public class WebPlatformSessionUtil {
 
     /** 退出登录时调用. 清空 session */
     public static void signOut() {
+        RequestUtils.clearSession();
+    }
+
+    public static void logout() {
         RequestUtils.clearSession();
     }
 }

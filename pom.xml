@@ -23,7 +23,7 @@
 		<module>tudou-global</module>
 
 		<!-- 用户模块 -->
-		<module>tudou-1-user</module>
+		<module>tudou-1-base</module>
 
 		<!-- 给前端项目调用, 发布成 web 项目 -->
 		<module>web-platform</module>
@@ -46,7 +46,7 @@
 		<okhttp.version>2.7.5</okhttp.version>
 		<poi-ooxml.version>3.15</poi-ooxml.version>
 		<spring.fox.version>2.7.0</spring.fox.version>
-		<swagger.ui.version>1.8.1</swagger.ui.version>
+		<api-document.version>0.7.7</api-document.version>
 		<gson.version>2.8.2</gson.version>
 		<brave.version>3.11.1</brave.version>
 
@@ -81,7 +81,7 @@
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>user-model</artifactId>
+				<artifactId>base-model</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -215,19 +215,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${spring.fox.version}</version>
-			</dependency>
-			<!--<dependency>-->
-				<!--<groupId>com.github.caspar-chen</groupId>-->
-				<!--<artifactId>swagger-ui-layer</artifactId>-->
-				<!--<version>${swagger.ui.version}</version>-->
-			<!--</dependency>-->
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>swagger-bootstrap-ui</artifactId>
-				<version>${swagger.ui.version}</version>
+				<groupId>com.github.liuanxin</groupId>
+				<artifactId>api-document</artifactId>
+				<version>${api-document.version}</version>
 			</dependency>
 
 		</dependencies>

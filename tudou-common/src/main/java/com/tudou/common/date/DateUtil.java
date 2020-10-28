@@ -18,8 +18,8 @@ public class DateUtil {
     }
 
     /** 返回 yyyy-MM-dd HH:mm:ss 格式的当前时间 */
-    public static String nowTime() {
-        return now(DateFormatType.YYYY_MM_DD_HH_MM_SS);
+    public static Long nowTime() {
+        return now().getTime();
     }
 
     /** 返回 yyyy-MM-dd HH:mm:ss SSS 格式的当前时间 */

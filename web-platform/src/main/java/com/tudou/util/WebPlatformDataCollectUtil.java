@@ -9,7 +9,7 @@ import com.tudou.common.resource.Loader;
 import com.tudou.common.util.A;
 import com.tudou.common.util.U;
 import com.tudou.global.constant.GlobalConst;
-import com.tudou.user.constant.UserConst;
+import com.tudou.base.constant.UserConst;
 
 import java.util.List;
 import java.util.Map;

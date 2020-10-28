@@ -1,4 +1,4 @@
-myhost: 192.168.157.128
+myhost: localhost
 online: false
 
 logging.config: classpath:log-dev.xml
@@ -13,7 +13,6 @@ spring:
   redis:
     host: ${myhost}
     port: 6379
-    password: imbatv
 #  activemq:
 #    broker-url: tcp://127.0.0.1:61616
 #    user: admin

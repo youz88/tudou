@@ -1,9 +1,10 @@
 package com.tudou.common.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.github.liuanxin.api.annotation.ApiResponses;
+import com.github.liuanxin.api.annotation.ApiReturn;
 import com.tudou.common.exception.NotLoginException;
 import com.tudou.common.util.U;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,15 +38,15 @@ public class JsonResult<T> {
      *   返回 10 时导向登录页面引导用户登录.
      * </pre>
      */
-    @ApiModelProperty("返回码")
+    @ApiReturn("返回码")
     private int code = Code.FAIL.flag;
 
     /** 返回说明. 如: 用户名密码错误 等 */
-    @ApiModelProperty("返回说明")
+    @ApiReturn("返回说明")
     private String msg = U.EMPTY;
 
     /** 返回的数据. 实体 {"id":1} 还是列表 [{"id":1},{"id":2}] 依业务而定 */
-    @ApiModelProperty("返回的数据")
+    @ApiReturn("返回的数据")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 

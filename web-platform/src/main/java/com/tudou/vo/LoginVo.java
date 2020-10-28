@@ -1,11 +1,11 @@
 package com.tudou.vo;
 
+import com.github.liuanxin.api.annotation.ApiReturn;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.tudou.base.model.User;
 import com.tudou.common.Const;
 import com.tudou.common.json.JsonUtil;
-import com.tudou.user.model.User;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -14,30 +14,31 @@ import java.util.Map;
 @Data
 public class LoginVo {
 
-    @ApiModelProperty("编号")
-    private Integer userId;
+    @ApiReturn("用户ID")
+    private Integer id;
 
-    @ApiModelProperty("帐号")
+    @ApiReturn("帐号")
     private String username;
 
-    @ApiModelProperty("姓名")
+    @ApiReturn("姓名")
     private String realname;
 
-    @ApiModelProperty("头像")
+    @ApiReturn("头像")
     private String avatar;
 
-    @ApiModelProperty("电话")
+    @ApiReturn("电话")
     private String phone;
 
-    @ApiModelProperty("邮箱")
+    @ApiReturn("邮箱")
     private String email;
 
-    @ApiModelProperty("性别")
-    private Byte sex;
+    @ApiReturn("性别")
+    private Integer gender;
 
+    @ApiReturn("权限列表")
     List<Permission> permissions;
 
-    public static LoginVo loginVoData(User user, List<com.tudou.user.model.Permission > permissions) {
+    public static LoginVo loginVoData(User user, List<com.tudou.base.model.Permission > permissions) {
         LoginVo convert = JsonUtil.convert(user, LoginVo.class);
         Map<Long,Permission> permissionMap = Maps.newHashMap();
         List<Permission> convertPermissionList = JsonUtil.convertList(permissions, Permission.class);
@@ -58,31 +59,31 @@ public class LoginVo {
     @Data
     static class Permission {
 
-        @ApiModelProperty("ID")
+        @ApiReturn("ID")
         private Long id;
 
-        @ApiModelProperty("所属上级")
+        @ApiReturn("所属上级")
         private Long pid;
 
-        @ApiModelProperty("名称")
+        @ApiReturn("名称")
         private String name;
 
-        @ApiModelProperty("类型(1:目录,2:菜单,3:按钮)")
+        @ApiReturn("类型(1:目录,2:菜单,3:按钮)")
         private Byte type;
 
-        @ApiModelProperty("权限方法(get,head,post,put,delete)")
+        @ApiReturn("权限方法(get,head,post,put,delete)")
         private String method;
 
-        @ApiModelProperty("路径")
+        @ApiReturn("路径")
         private String url;
 
-        @ApiModelProperty("图标")
+        @ApiReturn("图标")
         private String icon;
 
-        @ApiModelProperty("排序")
+        @ApiReturn("排序")
         private Long orders;
 
-        @ApiModelProperty("子菜单权限")
+        @ApiReturn("子菜单权限")
         List<Permission> child = Lists.newArrayList();
 
     }

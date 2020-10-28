@@ -92,8 +92,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
+			<groupId>com.github.liuanxin</groupId>
+			<artifactId>api-document</artifactId>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

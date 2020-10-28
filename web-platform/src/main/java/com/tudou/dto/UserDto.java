@@ -1,10 +1,11 @@
 package com.tudou.dto;
 
+import com.github.liuanxin.api.annotation.ApiParam;
+import com.tudou.base.enums.EnableStatus;
+import com.tudou.base.model.User;
 import com.tudou.common.json.JsonUtil;
 import com.tudou.common.util.U;
-import com.tudou.user.model.User;
 import com.tudou.util.WebPlatformSessionUtil;
-import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import org.springframework.util.Assert;
 
@@ -23,6 +24,9 @@ public class UserDto {
     @ApiParam("姓名")
     private String realname;
 
+    @ApiParam("昵称")
+    private String nickname;
+
     @ApiParam("头像")
     private String avatar;
 
@@ -33,18 +37,26 @@ public class UserDto {
     private String email;
 
     @ApiParam("性别")
-    private Byte sex;
+    private Integer gender;
 
     public User addUserData(){
+        Assert.isTrue(U.isNotBlank(username),"用户名不能为空");
+        Assert.isTrue(U.isNotBlank(password),"密码不能为空");
+        if (U.isBlank(nickname)) {
+            nickname = username;
+        }
         User convert = JsonUtil.convert(this, User.class);
         Long userId = WebPlatformSessionUtil.getUserId();
-        convert.setCreateId(userId);
-        convert.setModifyId(userId);
+        convert.setCreateId(userId)
+                .setModifyId(userId)
+                .setStatus(EnableStatus.Normal.getCode());
         return convert;
     }
 
     public User updateUserData(){
         Assert.isTrue(U.isNotBlank(id),"用户ID不能为空");
-        return JsonUtil.convert(this, User.class);
+        User convert = JsonUtil.convert(this, User.class);
+        convert.setModifyId(WebPlatformSessionUtil.getUserId());
+        return convert;
     }
 }

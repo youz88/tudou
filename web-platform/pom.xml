@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>user-model</artifactId>
+			<artifactId>base-model</artifactId>
 		</dependency>
 
 		<dependency>
@@ -63,12 +63,8 @@
 			<artifactId>spring-session</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.xiaoymin</groupId>
-			<artifactId>swagger-bootstrap-ui</artifactId>
+			<groupId>com.github.liuanxin</groupId>
+			<artifactId>api-document</artifactId>
 		</dependency>
 
 

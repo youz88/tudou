@@ -1,0 +1,29 @@
+pipeline {
+  agent any
+  tools {
+    maven 'Maven3.6.3'
+    jdk 'jdk1.8.0_251'
+  }
+  stages {
+    stage('Package') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh '''
+                mvn dockerfile:build
+                name="base-server"
+                containers=$(docker ps --filter name=${name} -q)
+                if [ -n "${containers}" ]; then
+                    docker stop containers
+                    docker rm containers
+                fi
+                docker run -d --name=${name} -p 20881:20881 swr.cn-east-2.myhuaweicloud.com/youz/${name}
+            '''
+        echo 'pipeline success'
+      }
+    }
+  }
+}

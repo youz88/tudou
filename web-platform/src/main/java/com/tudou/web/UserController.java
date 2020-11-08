@@ -60,8 +60,8 @@ public class UserController {
     }
 
     @ApiMethod("用户详情")
-    @GetMapping("/list")
-    public JsonResult<PageInfo<UserVo>> list(UserListDto userListDto, Page page){
+    @GetMapping("/page")
+    public JsonResult<PageInfo<UserVo>> page(UserListDto userListDto, Page page){
         PageInfo<User> pageInfo = userService.listByParam(userListDto.userData(),page);
         return JsonResult.success("用户详情",UserVo.assemblyData(pageInfo));
     }

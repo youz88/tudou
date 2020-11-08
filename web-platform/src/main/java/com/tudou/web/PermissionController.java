@@ -31,8 +31,8 @@ public class PermissionController {
     private PermissionService permissionService;
 
     @ApiMethod("权限列表")
-    @GetMapping("/list")
-    public JsonResult<PageInfo<PermissionVo>> list(PermissionListDto permissionListDto, Page page){
+    @GetMapping("/page")
+    public JsonResult<PageInfo<PermissionVo>> page(PermissionListDto permissionListDto, Page page){
         PageInfo<Permission> pageInfo = permissionService.listByParam(permissionListDto.permissionData(),page);
         return JsonResult.success("权限列表", PermissionVo.assemblyData(pageInfo));
     }

@@ -29,8 +29,8 @@ public class RoleController {
     private RoleService roleService;
 
     @ApiMethod("角色列表")
-    @GetMapping("/list")
-    public JsonResult<PageInfo<RoleVo>> list(RoleListDto roleListDto, Page page){
+    @GetMapping("/page")
+    public JsonResult<PageInfo<RoleVo>> page(RoleListDto roleListDto, Page page){
         PageInfo<Role> pageInfo = roleService.page(roleListDto.roleData(),page);
         return JsonResult.success("角色列表",RoleVo.assemblyData(pageInfo));
     }

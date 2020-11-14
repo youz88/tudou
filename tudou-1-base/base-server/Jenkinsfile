@@ -17,8 +17,8 @@ pipeline {
                 name="base-server"
                 containers=$(docker ps --filter name=${name} -q)
                 if [ -n "${containers}" ]; then
-                    docker stop containers
-                    docker rm containers
+                    docker stop "${containers}"
+                    docker rm "${containers}"
                 fi
                 docker run -d --name=${name} -p 20881:20881 swr.cn-east-2.myhuaweicloud.com/youz/${name}
             '''
